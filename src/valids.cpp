@@ -7,6 +7,7 @@ using namespace std;
 
 // function isValid prototype
 bool isValid(string word);
+string toLower(string word);
 
 // function main begins program execution
 int main()
@@ -18,7 +19,7 @@ int main()
 	if(file.is_open()) {
 		while(getline(file, line)) {
 			if (isValid(line)) {
-				myfile << line << "\n";
+				myfile << toLower(line) << "\n";
 			}
 		}
 		file.close();
@@ -40,3 +41,13 @@ bool isValid(string word)
 	}
 	return true;
 } // end isValid code block
+
+string toLower(string word)
+{
+	for (int i = 0; i < 5; i++) {
+		if (65 <= word[i] && word[i] <= 90) {
+			word[i] += 32;
+		}
+	}
+	return word;
+}
