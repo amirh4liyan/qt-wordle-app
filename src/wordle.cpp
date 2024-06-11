@@ -7,8 +7,11 @@
 #include <algorithm>
 using namespace std;
 
+string selected = "ASCII";
+string result = "uuuuu";
 vector <string> words;
 bool isValid(string word);
+int find_index(char letter);
 
 // function main begins program execution
 int main()
@@ -30,13 +33,36 @@ int main()
 	cin >> input_word;
 	
 	if (isValid(input_word)) {
-		cout << "Valid\n";
+		if (input_word == selected) {
+			cout << "YOU WON!\n";
+			return 1;
+		} else {
+			int index = -1;
+			for (int i = 0; i < 5; i++) {
+				index = find_index(input_word[i]);
+				if (index == i)
+					result[i] = 'g';
+				else if (index > -1 && index != i && result[index] != 'g')
+					result[i] = 'y';
+				else
+					result[i] = 'b';
+			}
+			cout << result << endl;
+		}
 	} else {
 		cout << "Invalid\n";
 	}
 
 	return 0;
 } // end function main
+
+int find_index(char letter)
+{
+	for (int i = 0; i < 5; i++)
+		if (letter == selected[i])
+			return i;
+	return -1;
+}
 
 bool isValid(string word)
 {
