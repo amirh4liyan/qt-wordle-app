@@ -8,6 +8,7 @@
 using namespace std;
 
 vector <string> words;
+bool isValid(string word);
 
 // function main begins program execution
 int main()
@@ -27,6 +28,20 @@ int main()
 	string input_word = "Null";
 	cout << "[in-str] Your Guess: ";
 	cin >> input_word;
+	
+	if (isValid(input_word)) {
+		cout << "Valid\n";
+	} else {
+		cout << "Invalid\n";
+	}
 
 	return 0;
 } // end function main
+
+bool isValid(string word)
+{
+	if (find(words.begin(), words.end(), word) != words.end())
+		return true;
+	else
+		return false;
+}
