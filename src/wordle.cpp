@@ -22,5 +22,11 @@ int main()
 	} else {
 		cout << "[out-err]: Unable to open file ";
 	}
+
+	// get input from user
+	string input_word = "Null";
+	cout << "[in-str] Your Guess: ";
+	cin >> input_word;
+
 	return 0;
 } // end function main
