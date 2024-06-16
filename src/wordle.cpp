@@ -31,7 +31,8 @@ int main()
 	selected = words[index];
 
 	
-	while (true) {
+	int count = 1;
+	while (count < 7) {
 		// get input from user
 		string input_word = "Null";
 		cout << "[in-str] Your Guess: ";
@@ -45,6 +46,9 @@ int main()
 				// determine word status
 				word_status(input_word);
 				cout << result << endl;
+				
+				// counting steps of game
+				count++;
 			}
 		} else {
 			cout << "Invalid\n";
